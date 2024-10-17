@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # Cargar el archivo CSV con los datos extraídos
-df = pd.read_csv('Webscraping/Libertad y Desarrollo/data/raw/lyd_noticias_completas.csv')
+df = pd.read_csv('C:/Users/Rodrigo/Desktop/MiniCOES/minicoesfondap-1523A0005/Webscraping/Derecha/Transversales/Libertad y Desarrollo/data/raw/lyd_noticias_completas.csv')
 
 # 1. Eliminar duplicados
 df_limpio = df.drop_duplicates()
@@ -42,7 +42,7 @@ def convertir_fecha(fecha_str):
 df_limpio['Fecha'] = df_limpio['Fecha'].apply(convertir_fecha)
 
 # Crear la carpeta de destino si no existe
-output_dir = 'Webscraping/Libertad y Desarrollo/data/cleaned'
+output_dir = 'C:/Users/Rodrigo/Desktop/MiniCOES/minicoesfondap-1523A0005/Webscraping/Derecha/Transversales/Libertad y Desarrollo/data/cleaned'
 os.makedirs(output_dir, exist_ok=True)
 
 # 5. Guardar el DataFrame limpio en un archivo CSV

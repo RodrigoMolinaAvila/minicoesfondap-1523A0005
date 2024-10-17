@@ -79,7 +79,7 @@ for page in range(1, page_limit + 1):
 df = pd.DataFrame(data)
 
 # Crear la carpeta de destino si no existe
-output_dir = 'Webscraping/Libertad y Desarrollo/data/raw'
+output_dir = r'C:\Users\Rodrigo\Desktop\MiniCOES\minicoesfondap-1523A0005\Webscraping\Derecha\Transversales\Libertad y Desarrollo\data\raw'
 os.makedirs(output_dir, exist_ok=True)
 
 # Guardar el DataFrame en un archivo CSV en la ruta correcta

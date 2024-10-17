@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # Cargar el archivo CSV con los datos extraídos
-input_path = 'Webscraping/Libertad y Desarrollo/data/raw/lyd_temas_publicos.csv'
+input_path = 'C:/Users/Rodrigo/Desktop/MiniCOES/minicoesfondap-1523A0005/Webscraping/Derecha/Transversales/Libertad y Desarrollo/data/raw/lyd_temas_publicos.csv'
 df = pd.read_csv(input_path)
 
 # 1. Contar los enlaces duplicados
@@ -11,7 +11,7 @@ num_duplicados = duplicados.shape[0]
 print(f"Se encontraron {num_duplicados} filas duplicadas basadas en el enlace.")
 
 # Guardar el archivo de duplicados para revisión si es necesario
-output_dir = 'Webscraping/Libertad y Desarrollo/data/outputs'
+output_dir = 'C:/Users/Rodrigo/Desktop/MiniCOES/minicoesfondap-1523A0005/Webscraping/Derecha/Transversales/Libertad y Desarrollo/data/outputs'
 os.makedirs(output_dir, exist_ok=True)
 duplicados_output_path = os.path.join(output_dir, 'lyd_temas_publicos_duplicados.csv')
 duplicados.to_csv(duplicados_output_path, index=False, encoding='utf-8')
@@ -31,7 +31,7 @@ df_clean = df_sorted.drop_duplicates(subset=['Enlace'], keep='first')
 df_clean = df_clean.drop(columns=['Tiene_Etiquetas'])
 
 # 3. Guardar el DataFrame limpio en un archivo CSV
-output_clean_dir = 'Webscraping/Libertad y Desarrollo/data/cleaned'
+output_clean_dir = 'C:/Users/Rodrigo/Desktop/MiniCOES/minicoesfondap-1523A0005/Webscraping/Derecha/Transversales/Libertad y Desarrollo/data/cleaned'
 os.makedirs(output_clean_dir, exist_ok=True)
 output_clean_path_csv = os.path.join(output_clean_dir, 'lyd_temas_publicos_limpio.csv')
 df_clean.to_csv(output_clean_path_csv, index=False, encoding='utf-8')

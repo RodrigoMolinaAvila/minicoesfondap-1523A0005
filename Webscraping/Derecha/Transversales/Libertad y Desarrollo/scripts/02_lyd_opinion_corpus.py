@@ -69,7 +69,7 @@ for index, row in df.iterrows():
 df_completo = pd.DataFrame(datos_completos)
 
 # Crear la carpeta de destino si no existe
-output_dir = 'Webscraping/Libertad y Desarrollo/data/raw'
+output_dir = 'C:/Users/Rodrigo/Desktop/MiniCOES/minicoesfondap-1523A0005/Webscraping/Derecha/Transversales/Libertad y Desarrollo/data/raw'
 os.makedirs(output_dir, exist_ok=True)
 
 # Guardar el DataFrame en un archivo CSV en la ruta correcta

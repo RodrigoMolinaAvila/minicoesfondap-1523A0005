@@ -2,10 +2,10 @@ import pandas as pd
 import os
 
 # Definir la ruta del archivo CSV de entrada
-input_file = r'C:\Users\rodri\OneDrive\Escritorio\Git MiniCoes\minicoesfondap-1523A0005\Webscraping\Libertad y Desarrollo\data\raw\lyd_informes_economicos.csv'
+input_file = r'C:\Users\Rodrigo\Desktop\MiniCOES\minicoesfondap-1523A0005\Webscraping\Derecha\Transversales\Libertad y Desarrollo\data\raw\lyd_informes_economicos.csv'
 
 # Definir la ruta del archivo CSV y Excel de salida
-output_dir = r'C:\Users\rodri\OneDrive\Escritorio\Git MiniCoes\minicoesfondap-1523A0005\Webscraping\Libertad y Desarrollo\data\cleaned'
+output_dir = r'C:\Users\Rodrigo\Desktop\MiniCOES\minicoesfondap-1523A0005\Webscraping\Derecha\Transversales\Libertad y Desarrollo\data\cleaned'
 os.makedirs(output_dir, exist_ok=True)
 output_csv = os.path.join(output_dir, 'lyd_informes_economicos_limpio.csv')
 output_excel = os.path.join(output_dir, 'lyd_informes_economicos_limpio.xlsx')

@@ -2,10 +2,10 @@ import pandas as pd
 import os
 
 # Ruta del archivo CSV sin procesar
-input_path = r'C:\Users\rodri\OneDrive\Escritorio\Git MiniCoes\minicoesfondap-1523A0005\Webscraping\Libertad y Desarrollo\data\raw\lyd_resena_legislativa.csv'
+input_path = r'C:\Users\Rodrigo\Desktop\MiniCOES\minicoesfondap-1523A0005\Webscraping\Derecha\Transversales\Libertad y Desarrollo\data\raw\lyd_resena_legislativa.csv'
 
 # Ruta para guardar el archivo limpio
-output_dir = r'C:\Users\rodri\OneDrive\Escritorio\Git MiniCoes\minicoesfondap-1523A0005\Webscraping\Libertad y Desarrollo\data\cleaned'
+output_dir = r'C:\Users\Rodrigo\Desktop\MiniCOES\minicoesfondap-1523A0005\Webscraping\Derecha\Transversales\Libertad y Desarrollo\data\cleaned'
 os.makedirs(output_dir, exist_ok=True)
 
 # Cargar el archivo CSV sin procesar
