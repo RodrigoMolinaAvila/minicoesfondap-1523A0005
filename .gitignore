@@ -1,8 +1,5 @@
 *.csv
 *.json
-*.parquet
-
-Database/01_bbdd_think_tanks.parquet
 
 df.json
 
