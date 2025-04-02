@@ -1,1 +1,15 @@
 *.csv
+*.json
+*.parquet
+
+Database/01_bbdd_think_tanks.parquet
+
+df.json
+
+output.xlsx
+
+df.xlsx
+
+stopwords_expandida.txt 
+
+stopwords_funcionales.txt
