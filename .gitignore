@@ -7,6 +7,7 @@ output.xlsx
 
 df.xlsx
 
-stopwords_expandida.txt 
+Database/01_bbdd_think_tanks_no_stopwords.parquet
 
-stopwords_funcionales.txt
+Database/01_bbdd_think_tanks_no_stopwords.xlsx
+
