@@ -40,7 +40,7 @@ pip install -r requirements.txt
 
 ## Investigadores participantes:
 
-- Camila Bahamondes
+- Camila Joustra
 - Lieta Vivaldi
 - Marcos González Hernando
 - Rodrigo Molina Ávila
