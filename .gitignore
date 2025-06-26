@@ -1,5 +1,7 @@
 *.csv
 *.json
+*.parquet
+*.xlsx
 
 df.json
 
@@ -10,4 +12,6 @@ df.xlsx
 Database/01_bbdd_think_tanks_no_stopwords.parquet
 
 Database/01_bbdd_think_tanks_no_stopwords.xlsx
+
+!Analysis/01_bbdd_think_tanks_no_stopwords.parquet
 
