@@ -1,0 +1,151 @@
+@prefix :    <http://ex.org/data/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s:   <http://ex.org/shapes/> .
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Q1
+s:PgnLexicalShape
+  a sh:NodeShape ;
+  sh:targetObjectsOf :pgn ;
+  sh:datatype xsd:string ;
+  sh:pattern "^1"
+.
+
+# Q2
+s:ChessTournamentVenueOrWebsite
+  a sh:NodeShape ;
+  sh:target [
+    a sh:SPARQLTarget ;
+    sh:select """
+      SELECT ?this WHERE {
+        ?this a ?t .
+        ?t rdfs:subClassOf* :ChessTournament .
+      }
+    """
+  ] ;
+  sh:or (
+    [ a sh:NodeShape ;
+      sh:property [ a sh:PropertyShape ; sh:path :venue ;   sh:minCount 1 ]
+    ]
+    [ a sh:NodeShape ;
+      sh:property [ a sh:PropertyShape ; sh:path :website ; sh:minCount 1 ]
+    ]
+  )
+.
+
+# Q3
+s:ChessMatch_Q3
+  a sh:NodeShape ;
+  sh:targetClass :ChessMatch ;
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path :result ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:in ( :WhiteWin :BlackWin :Draw :Incomplete )
+  ]
+.
+
+# Q4
+s:ChessMatch_Q4
+  a sh:NodeShape ;
+  sh:targetClass :ChessMatch ;
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path :prev ;
+    sh:disjoint :next
+  ]
+.
+
+# Q5
+s:ChessMatch_Q5
+  a sh:NodeShape ;
+  sh:targetClass :ChessMatch ;
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path :opening ;
+    sh:class :ChessOpening
+  ]
+.
+
+# Q6
+s:ChessPlayer
+  a sh:NodeShape ;
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path :country ;
+    sh:minCount 1 ;
+    sh:maxCount 1
+  ] ;
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path :dob ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:date
+  ]
+.
+s:ChessMatch_Q6
+  a sh:NodeShape ;
+  sh:targetClass :ChessMatch ;
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path :white ;
+    sh:node s:ChessPlayer
+  ] ;
+  sh:property [
+    a sh:PropertyShape ;
+    sh:path :black ;
+    sh:node s:ChessPlayer
+  ]
+.
+
+# Q7
+s:ChessMatch_Q7
+  a sh:NodeShape ;
+  sh:targetClass :ChessMatch ;
+  sh:or (
+    [ a sh:NodeShape ;
+      sh:property [
+        a sh:PropertyShape ;
+        sh:path ( :prev :date ) ;
+        sh:lessThan :date
+      ]
+    ]
+    [ a sh:NodeShape ;
+      sh:property [
+        a sh:PropertyShape ;
+        sh:path ( :prev :date ) ;
+        sh:equals :date
+      ]
+    ]
+  )
+.
+
+# Q8
+s:ChessMatch_Q8
+  a sh:NodeShape ;
+  sh:targetClass :ChessMatch ;
+  sh:or (
+    [ a sh:NodeShape ;
+      sh:not [
+        a sh:NodeShape ;
+        sh:property [ a sh:PropertyShape ; sh:path :next ; sh:minCount 1 ]
+      ]
+    ]
+    [ a sh:NodeShape ;
+      sh:and (
+        [ a sh:PropertyShape ; sh:path ( :next :white ) ; sh:equals :white ]
+        [ a sh:PropertyShape ; sh:path ( :next :black ) ; sh:equals :black ]
+      )
+    ]
+    [ a sh:NodeShape ;
+      sh:and (
+        [ a sh:PropertyShape ; sh:path ( :next :white ) ; sh:equals :black ]
+        [ a sh:PropertyShape ; sh:path ( :next :black ) ; sh:equals :white ]
+      )
+    ]
+  )
+.
